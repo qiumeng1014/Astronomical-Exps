@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="lamps.css">
   <link rel="stylesheet" href="residential.css">
   <link rel="stylesheet" href="control-panel.css">
+  <link rel="stylesheet" href="grade-banner.css">
   <script src="../../shared/components/affordance.js" defer></script>
   <script src="../../shared/components/hand-icons-flat.js" defer></script>
   <script src="../../shared/components/gesture.js" defer></script>
@@ -21,6 +22,10 @@
   <script src="app.js" defer></script>
   <script src="control-panel.js" defer></script>
   <script src="panel-tuner.js" defer></script>
+  <script src="pollution-index.js" defer></script>
+  <script src="pollution-meter.js" defer></script>
+  <script src="grade-banner.js" defer></script>
+  <script src="grade-tuner.js" defer></script>
   <script src="lamp-hints.js" defer></script>
 <link rel="stylesheet" href="../../shared/typography/typography.css"></head>
 <body>
@@ -55,7 +60,19 @@
         <feColorMatrix id="residential-color-matrix" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0"/>
       </filter><filter id="public-building-color" color-interpolation-filters="sRGB"><feColorMatrix id="public-building-color-matrix" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0"/></filter></defs>
     </svg>
-    <header><h1>光污染实验</h1><div class="rule"></div></header>
+    <div class="stage-top">
+      <header><h1>光污染实验</h1><div class="rule"></div></header>
+      <section class="grade-banner" aria-live="polite">
+        <div class="grade-banner-level">
+          <p class="grade-banner-caption">当前光污染等级</p>
+          <div class="grade-banner-value">
+            <span class="grade-banner-ring"><span data-grade-int>1</span></span>
+            <span class="grade-banner-unit">级</span>
+          </div>
+        </div>
+        <p class="grade-banner-copy" data-grade-copy></p>
+      </section>
+    </div>
     <section class="lamp-editor" aria-label="前景路灯编辑" hidden>
       <div class="editor-heading"><h2>全部路灯 <small class="lamp-count"></small></h2><button class="close-editor" aria-label="关闭路灯编辑">×</button></div>
       <div class="shade-options" role="group" aria-label="灯罩样式">
